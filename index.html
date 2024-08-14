@@ -1,0 +1,66 @@
+<html
+<head>
+<title>Greeting App By Ankita</title>
+<style>
+*{front-size:60px; font-family:cambria;}
+body{background-color:linen;}
+</style>
+</head>
+<body>
+<center>
+<h1>Greeting App</h1>
+<form onsubmit="greet()">
+<input type="text" id="name" placeholder="Enter Name"/>
+<br/><br/>
+<input type="submit"/>
+</form>
+<h2 id="msg"/>
+<script>
+function greet()
+{
+event.preventDefault();
+let name=document.getElementById("name");
+let msg=document.getElementById("msg");
+
+if(name.value==="")
+{
+alert("name cannot be empty");
+msg.innerHTML="";
+name.focus();
+return;
+}
+if(name.value.trim()==="")
+{
+alert("name cannot be blank");
+msg.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+if(!name.value.match(/^[A-Za-z]+$/))
+{
+alert("name shud contain only alphabets");
+msg.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+
+let n=name.value;
+let d=new Date();
+let h=d.getHours();
+let a="";
+if(h<12)
+a="Good Morning "+n;
+else if(h<16)
+a="Good Afternoon "+n;
+else 
+a="Good Evening "+n;
+msg.innerHTML=a;
+
+}
+
+</script>
+</center>
+</body>
+</html>
